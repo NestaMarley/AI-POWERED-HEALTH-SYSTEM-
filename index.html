@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Health Monitoring System</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Main Content Styles */
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #4CAF50;
+    }
+
+    /* Health Metrics Section */
+    .health-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .health-metric {
+      flex-basis: 48%;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Recommendations Section */
+    .recommendations {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .health-metric {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI-Powered Health Monitoring System</h1>
+    <p>Bot Name: Dzeg</p>
+  </header>
+
+  <main>
+    <section class="health-metrics">
+      <div class="health-metric">
+        <h2>Heart Rate</h2>
+        <p id="heart-rate">75 bpm</p>
+      </div>
+      <div class="health-metric">
+        <h2>Blood Oxygen</h2>
+        <p id="blood-oxygen">98%</p>
+      </div>
+      <div class="health-metric">
+        <h2>Activity Level</h2>
+        <p id="activity-level">Moderate</p>
+      </div>
+      <div class="health-metric">
+        <h2>Status</h2>
+        <p id="status">Normal</p>
+      </div>
+    </section>
+
+    <section class="recommendations">
+      <h2>Recommendations</h2>
+      <p id="recommendations">Your health metrics are within the normal range. Keep up the good work!</p>
+    </section>
+  </main>
+
+  <script>
+    // Simulate real-time health data updates
+    setInterval(function() {
+      document.getElementById('heart-rate').textContent = Math.floor(Math.random() * (100 - 60 + 1)) + 60 + ' bpm';
+      document.getElementById('blood-oxygen').textContent = Math.floor(Math.random() * (100 - 90 + 1)) + 90 + '%';
+      document.getElementById('activity-level').textContent = ['Low', 'Moderate', 'High'][Math.floor(Math.random() * 3)];
+
+      // Detect anomalies and provide recommendations
+      var heartRate = parseInt(document.getElementById('heart-rate').textContent);
+      var bloodOxygen = parseInt(document.getElementById('blood-oxygen').textContent);
+
+      if (heartRate < 60 || heartRate > 100 || bloodOxygen < 95) {
+        document.getElementById('status').textContent = 'Anomaly';
+        document.getElementById('recommendations').textContent = 'Your health metrics are outside the normal range. Please consult a healthcare professional.';
+      } else {
+        document.getElementById('status').textContent = 'Normal';
+        document.getElementById('recommendations').textContent = 'Your health metrics are within the normal range. Keep up the good work!';
+      }
+    }, 5000);
+  </script>
+</body>
+  </html>
+  
